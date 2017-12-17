@@ -66,16 +66,6 @@ pause;
 
 fprintf('Solving with normal equations...\n');
 
-% ====================== YOUR CODE HERE ======================
-% Instructions: The following code computes the closed form
-%               solution for linear regression using the normal
-%               equations. You should complete the code in
-%               normalEqn.m
-%
-%               After doing so, you should complete this code
-%               to predict the price of a 1650 sq-ft, 3 br house.
-%
-
 %% Load Data
 data = csvread('ex1data2.txt');
 X = data(:, 1:2);
@@ -93,14 +83,11 @@ fprintf('Theta computed from the normal equations: \n');
 fprintf(' %f \n', theta);
 fprintf('\n');
 
-
 % Estimate the price of a 1650 sq-ft, 3 br house
-% ====================== YOUR CODE HERE ======================
-price = 0; % You should change this
 
+X_test = [1 1650 3]; % don't need feature normalization
 
-% ============================================================
+price = X_test * theta;
 
 fprintf(['Predicted price of a 1650 sq-ft, 3 br house ' ...
          '(using normal equations):\n $%f\n'], price);
-
