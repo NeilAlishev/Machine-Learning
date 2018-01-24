@@ -164,7 +164,7 @@ pause;
 %  lambda to see how the fit and learning curve change.
 %
 
-lambda = 0;
+lambda = 1; % optimal lambda value
 [theta] = trainLinearReg(X_poly, y, lambda);
 
 % Plot training data and fit
@@ -218,3 +218,13 @@ end
 
 fprintf('Program paused. Press enter to continue.\n');
 pause;
+
+fprintf('Computing Test set error \n');
+
+% train model with optimal lambda
+theta = trainLinearReg(X_poly, y, 3);
+
+% compute test set error
+error_test = linearRegCostFunction(X_poly_test, ytest, theta, 0);
+
+fprintf('Test error: %f \n', error_test);
